@@ -17,6 +17,15 @@ namespace Elgamal_encryption
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            MessageBox.Show($"{Random()}, Test ");
+        }
+
+        unsafe static int Random()
+        {
+            int x;
+            int* ptr = &x;
+            int lastNumber = (int)ptr % 10;
+            return lastNumber < 0 ? -lastNumber : lastNumber;
         }
     }
 }
