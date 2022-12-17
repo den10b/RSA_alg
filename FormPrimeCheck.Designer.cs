@@ -31,7 +31,7 @@ namespace Elgamal_encryption
         {
             this.labelNumberCheck = new System.Windows.Forms.Label();
             this.checkBoxDivisTest = new System.Windows.Forms.CheckBox();
-            this.checkBoxFerma = new System.Windows.Forms.CheckBox();
+            this.checkBoxAKS = new System.Windows.Forms.CheckBox();
             this.buttonStartTest = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.comboBoxNumberCheck = new System.Windows.Forms.ComboBox();
@@ -59,16 +59,16 @@ namespace Elgamal_encryption
             this.checkBoxDivisTest.Text = "Тест пробных делений";
             this.checkBoxDivisTest.UseVisualStyleBackColor = true;
             // 
-            // checkBoxFerma
+            // checkBoxAKS
             // 
-            this.checkBoxFerma.AutoSize = true;
-            this.checkBoxFerma.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxFerma.Location = new System.Drawing.Point(367, 73);
-            this.checkBoxFerma.Name = "checkBoxFerma";
-            this.checkBoxFerma.Size = new System.Drawing.Size(124, 23);
-            this.checkBoxFerma.TabIndex = 5;
-            this.checkBoxFerma.Text = "Тест Ферма";
-            this.checkBoxFerma.UseVisualStyleBackColor = true;
+            this.checkBoxAKS.AutoSize = true;
+            this.checkBoxAKS.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxAKS.Location = new System.Drawing.Point(330, 73);
+            this.checkBoxAKS.Name = "checkBoxAKS";
+            this.checkBoxAKS.Size = new System.Drawing.Size(97, 23);
+            this.checkBoxAKS.TabIndex = 5;
+            this.checkBoxAKS.Text = "Тест AKS";
+            this.checkBoxAKS.UseVisualStyleBackColor = true;
             // 
             // buttonStartTest
             // 
@@ -119,7 +119,7 @@ namespace Elgamal_encryption
             this.Controls.Add(this.comboBoxNumberCheck);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonStartTest);
-            this.Controls.Add(this.checkBoxFerma);
+            this.Controls.Add(this.checkBoxAKS);
             this.Controls.Add(this.checkBoxDivisTest);
             this.Controls.Add(this.labelNumberCheck);
             this.Name = "FormPrimeCheck";
@@ -133,7 +133,7 @@ namespace Elgamal_encryption
 
         private System.Windows.Forms.Label labelNumberCheck;
         private System.Windows.Forms.CheckBox checkBoxDivisTest;
-        private System.Windows.Forms.CheckBox checkBoxFerma;
+        private System.Windows.Forms.CheckBox checkBoxAKS;
         private System.Windows.Forms.Button buttonStartTest;
         private System.Windows.Forms.Button buttonCancel;
         public System.Windows.Forms.ComboBox comboBoxNumberCheck;

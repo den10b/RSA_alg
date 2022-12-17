@@ -20,10 +20,9 @@ namespace Elgamal_encryption
 
         private void buttonStartTest_Click(object sender, EventArgs e)
         {
-            int num_check = 0;
+            int num_check = Int32.Parse(comboBoxNumberCheck.Text);
             if (checkBoxDivisTest.Checked)
             {
-                num_check = Int32.Parse(comboBoxNumberCheck.Text);
                 if (Trial_Division(num_check))
                 {
                     richTextBoxResult.Text = $"Число {num_check} является простым";
@@ -33,6 +32,26 @@ namespace Elgamal_encryption
                     richTextBoxResult.Text = $"Число {num_check} является составным\nПервый делитель {Index_Trial_Division(num_check)}";
                 }
                 
+            }
+            else if (checkBoxAKS.Checked)
+            {
+                if (num_check <= 100)
+                {
+                    if (Trila_AKS(num_check))
+                    {
+                        richTextBoxResult.Text = $"Число {num_check} является простым";
+                    }
+                    else
+                    {
+                        richTextBoxResult.Text = $"Число {num_check} является составным";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Введите число, меньше 100", "Error");
+                }
+                
+
             }
         }
 
@@ -50,6 +69,37 @@ namespace Elgamal_encryption
             for (int i = 2; i * i <= n; i++)
                 if (n % i == 0) return i;
             return 0;
+        }
+
+        //AKS
+        static long[] c = new long[100];
+
+        //Сoefficient calculation
+        static void coef(int n)
+        {
+            c[0] = 1;
+
+            for (int i = 0; i < n; c[0] = -c[0], i++)
+            {
+                c[1 + i] = 1;
+
+                for (int j = i; j > 0; j--)
+                    c[j] = c[j - 1] - c[j];
+            }
+        }
+
+        static bool Trila_AKS(int n)
+        {
+
+            coef(n);
+
+            c[0]++;
+            c[n]--;
+
+            int i = n;
+            while ((i--) > 0 && c[i] % n == 0) ;
+
+            return i < 0;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
