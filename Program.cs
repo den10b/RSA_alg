@@ -8,6 +8,7 @@ namespace Elgamal_encryption
 {
     static class Program
     {
+        public static FormMain FMain;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +17,7 @@ namespace Elgamal_encryption
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(FMain = new FormMain());
 
         }  
     }

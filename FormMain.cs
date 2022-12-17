@@ -11,9 +11,9 @@ using Elgamal_encryption;
 
 namespace Elgamal_encryption
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -21,6 +21,9 @@ namespace Elgamal_encryption
 
         private void buttonPrimelGenerate_Click(object sender, EventArgs e)
         {
+
+            FormDischargeSelection FormDischargeSelection = new FormDischargeSelection();
+            FormDischargeSelection.Show();
             
         }
 
