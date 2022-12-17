@@ -35,6 +35,7 @@ namespace Elgamal_encryption
             this.buttonStartTest = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.comboBoxNumberCheck = new System.Windows.Forms.ComboBox();
+            this.richTextBoxResult = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // labelNumberCheck
@@ -51,7 +52,7 @@ namespace Elgamal_encryption
             // 
             this.checkBoxDivisTest.AutoSize = true;
             this.checkBoxDivisTest.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxDivisTest.Location = new System.Drawing.Point(12, 102);
+            this.checkBoxDivisTest.Location = new System.Drawing.Point(12, 73);
             this.checkBoxDivisTest.Name = "checkBoxDivisTest";
             this.checkBoxDivisTest.Size = new System.Drawing.Size(212, 23);
             this.checkBoxDivisTest.TabIndex = 4;
@@ -62,7 +63,7 @@ namespace Elgamal_encryption
             // 
             this.checkBoxFerma.AutoSize = true;
             this.checkBoxFerma.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxFerma.Location = new System.Drawing.Point(356, 102);
+            this.checkBoxFerma.Location = new System.Drawing.Point(367, 73);
             this.checkBoxFerma.Name = "checkBoxFerma";
             this.checkBoxFerma.Size = new System.Drawing.Size(124, 23);
             this.checkBoxFerma.TabIndex = 5;
@@ -78,6 +79,7 @@ namespace Elgamal_encryption
             this.buttonStartTest.TabIndex = 6;
             this.buttonStartTest.Text = "Начать проверку";
             this.buttonStartTest.UseVisualStyleBackColor = true;
+            this.buttonStartTest.Click += new System.EventHandler(this.buttonStartTest_Click);
             // 
             // buttonCancel
             // 
@@ -88,24 +90,32 @@ namespace Elgamal_encryption
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // comboBoxNumberCheck
             // 
             this.comboBoxNumberCheck.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxNumberCheck.FormattingEnabled = true;
-            this.comboBoxNumberCheck.Items.AddRange(new object[] {
-            "123",
-            "234"});
-            this.comboBoxNumberCheck.Location = new System.Drawing.Point(204, 31);
+            this.comboBoxNumberCheck.Location = new System.Drawing.Point(183, 31);
             this.comboBoxNumberCheck.Name = "comboBoxNumberCheck";
-            this.comboBoxNumberCheck.Size = new System.Drawing.Size(121, 27);
+            this.comboBoxNumberCheck.Size = new System.Drawing.Size(170, 27);
             this.comboBoxNumberCheck.TabIndex = 8;
+            // 
+            // richTextBoxResult
+            // 
+            this.richTextBoxResult.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxResult.Location = new System.Drawing.Point(12, 102);
+            this.richTextBoxResult.Name = "richTextBoxResult";
+            this.richTextBoxResult.Size = new System.Drawing.Size(503, 114);
+            this.richTextBoxResult.TabIndex = 9;
+            this.richTextBoxResult.Text = "";
             // 
             // FormPrimeCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 269);
+            this.Controls.Add(this.richTextBoxResult);
             this.Controls.Add(this.comboBoxNumberCheck);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonStartTest);
@@ -126,6 +136,7 @@ namespace Elgamal_encryption
         private System.Windows.Forms.CheckBox checkBoxFerma;
         private System.Windows.Forms.Button buttonStartTest;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.ComboBox comboBoxNumberCheck;
+        public System.Windows.Forms.ComboBox comboBoxNumberCheck;
+        public System.Windows.Forms.RichTextBox richTextBoxResult;
     }
 }

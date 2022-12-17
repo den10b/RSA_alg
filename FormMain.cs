@@ -13,6 +13,7 @@ namespace Elgamal_encryption
 {
     public partial class FormMain : Form
     {
+        FormPrimeCheck FormPrimeCheck = new FormPrimeCheck();
         public FormMain()
         {
             InitializeComponent();
@@ -84,13 +85,16 @@ namespace Elgamal_encryption
             labelPValue.Text = pr1.ToString();
             labelP2Value.Text = pr2.ToString();
             labelNValue.Text = n.ToString();
-          
+
         }
 
         
         private void buttonPrimeCheck_Click(object sender, EventArgs e)
         {
+
             FormPrimeCheck FormPrimeCheck = new FormPrimeCheck();
+            FormPrimeCheck.comboBoxNumberCheck.Items.Add(labelPValue.Text);
+            FormPrimeCheck.comboBoxNumberCheck.Items.Add(labelP2Value.Text);
             FormPrimeCheck.Show();
         }
     }
