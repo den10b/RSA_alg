@@ -60,6 +60,12 @@
     <Compile Include="FormDischargeSelection.Designer.cs">
       <DependentUpon>FormDischargeSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrimeCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrimeCheck.Designer.cs">
+      <DependentUpon>FormPrimeCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDischargeSelection.resx">
       <DependentUpon>FormDischargeSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrimeCheck.resx">
+      <DependentUpon>FormPrimeCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

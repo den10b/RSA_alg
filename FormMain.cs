@@ -18,73 +18,80 @@ namespace Elgamal_encryption
             InitializeComponent();
         }
 
+        private ulong pr1 = 1;
+        private ulong pr2 = 1;
+        private ulong n;
+        uint state0 = 1;
+        uint state1 = 2;
+        uint rand()
+        {
+            uint s1 = state0;
+            uint s0 = state1;
+            state0 = s0;
+            s1 ^= s1 << 23;
+            s1 ^= s1 >> 17;
+            s1 ^= s0;
+            s1 ^= s0 >> 26;
+            state1 = s1;
+            return (state0 + state1) % 11;
+        }
 
+        private ulong pow(ulong n, int s)
+        {
+            ulong result = 1;
+            for (int i = 0; i < s; i++)
+                result = result * n;
+            return result;
+        }
         private void buttonPrimelGenerate_Click(object sender, EventArgs e)
         {
-
-            FormDischargeSelection FormDischargeSelection = new FormDischargeSelection();
-            FormDischargeSelection.Show();
-            
-        }
-
-        unsafe static int Random()
-        {
-            int x;
-            int* ptr = &x;
-            int lastNumber = (int)ptr % 10;
-            return lastNumber < 0 ? -lastNumber : lastNumber;
-        }
-
-        static long[] GenerateNumbers()
-        {
-            int randomValue = Random();
-
-            long m = 6075,
-                a = 106,
-                c = 1283,
-                x = 7 * randomValue;
-
-            Console.WriteLine($" m = {m},a = {a}, x = {x} ");
-
-            long[] numbers = new long[30];
-            for (int i = 0; i < numbers.Length; i++)
+            ulong min = pow((ulong)(rand()), Convert.ToInt32(rand() % 9));
+            ulong tpr1 = 1;
+            ulong tpr2 = 1;
+            for (ulong i = min; ; i++)
             {
-                numbers[i] = x = (a * x + c) % m;
-                if (numbers[i] < 0)
+                int check1 = -1;
+                if ((i % 2) == 0)
+                    continue;
+                for (ulong j = 3; j < i / 2; j += 2)
                 {
-                    numbers[i] *= -1;
-                }
-            }
-
-            Array.Sort(numbers);
-
-            return numbers;
-        }
-
-        static void isPrime(long[] array)
-        {
-            int i, j, p;
-            Console.Write("All Prime List:");
-            for (i = 0; i < array.Length; i++)
-            {
-                j = 2;
-                p = 1;
-                while (j * j < array[i])
-                {
-                    if (array[i] % j == 0)
+                    if (i % j == 0)
                     {
-                        p = 0;
+                        check1 = 1;
                         break;
                     }
-                    j++;
                 }
-
-                if (p == 1)
+                if (check1 == -1)
                 {
-                    MessageBox.Show($"{array[i]}", "Test");
+                    if ((tpr1 == 1) && (rand() > 8))
+                    {
+                        tpr1 = i;
+                    }
+                    else if ((tpr1 != 1) && (rand() > 9))
+                    {
+                        tpr2 = i;
+                    }
+                }
+                if ((tpr1 != 1) && (tpr2 != 1))
+                {
+                    break;
                 }
             }
+            this.pr1 = tpr1;
+            this.pr2 = tpr2;
+            this.n = tpr1 * tpr2;
+
+            labelPValue.Text = pr1.ToString();
+            labelP2Value.Text = pr2.ToString();
+            labelNValue.Text = n.ToString();
+          
         }
 
+        
+        private void buttonPrimeCheck_Click(object sender, EventArgs e)
+        {
+            FormPrimeCheck FormPrimeCheck = new FormPrimeCheck();
+            FormPrimeCheck.Show();
+        }
     }
 }
