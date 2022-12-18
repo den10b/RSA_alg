@@ -194,7 +194,9 @@ namespace Elgamal_encryption
             if (richTextDataRecipient.Text != "")
             {
                 string[] strA = richTextDataRecipient.Text.Split(' ');
-                
+                string checkSignature = strA[0];
+                int checkNumber = 0;
+
                 richTextDataRecipient.Text = "";
                 if (strA.Length > 0)
                 {
@@ -208,7 +210,6 @@ namespace Elgamal_encryption
                         b = strA[i + 1].ToCharArray();
                         for (int j = 0; (j < a.Length); j++)
                         {
-                            // ai * 10, 710
                             ai = ai * 10 + (ulong)(a[j] - 48);
                         }
                         for (int j = 0; (j < b.Length); j++)
@@ -219,11 +220,12 @@ namespace Elgamal_encryption
                         if ((ai != 0) && (bi != 0))
                         {
                             ulong deM = mul(bi, power(ai, p - 1 - x, p), p);
-                            MessageBox.Show($"ai = {ai}");
-                            MessageBox.Show($"deM = {deM}");
-                            char m = (char)deM;
-
-                            richTextDataRecipient.Text = richTextDataRecipient.Text + m;
+                            // Проверка подписи
+                            if (ai == ulong.Parse(checkSignature))
+                            {
+                                char m = (char)deM;
+                                richTextDataRecipient.Text = richTextDataRecipient.Text + m;
+                            } 
                         }
                     }
                 }
