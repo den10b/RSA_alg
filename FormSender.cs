@@ -103,5 +103,75 @@ namespace Elgamal_encryption
             FormRecipient formRecipient = new FormRecipient();
             formRecipient.Show();
         }
+
+        private ulong Change_Generate_Num()
+        {
+            ulong min = pow((ulong)(rand()), Convert.ToInt32(rand() % 9));
+            ulong tpr1 = 1;
+            ulong tpr2 = 2;
+            for (ulong i = min; ; i++)
+            {
+                int check1 = -1;
+                if ((i % 2) == 0)
+                    continue;
+                for (ulong j = 3; j < i / 2; j += 2)
+                {
+                    if (i % j == 0)
+                    {
+                        check1 = 1;
+                        break;
+                    }
+                }
+                if (check1 == -1)
+                {
+                    if ((tpr1 == 1) && (rand() > 8))
+                    {
+                        tpr1 = i;
+                    }
+                    else if ((tpr1 != 1) && (rand() > 9))
+                    {
+                        tpr2 = i;
+                    }
+                }
+                if ((tpr1 != 1) && (tpr2 != 1))
+                {
+                    break;
+                }
+            }
+            return tpr1;
+
+        }
+
+        public static bool IsCoprime(ulong num1, ulong num2)
+        {
+            if (num1 == num2)
+            {
+                return num1 == 1;
+            }
+            else
+            {
+                if (num1 > num2)
+                {
+                    return IsCoprime(num1 - num2, num2);
+                }
+                else
+                {
+                    return IsCoprime(num2 - num1, num1);
+                }
+            }
+        }
+        private void buttonPrivateKeyGenerate_Click(object sender, EventArgs e)
+        {
+            ulong p = ulong.Parse(labelOpenKeyPValue.Text);
+            ulong k = Change_Generate_Num();
+            while (k > p - 1)
+            {
+                k = Change_Generate_Num();
+            }
+            while (!IsCoprime(k, p - 1))
+            {
+                k = Change_Generate_Num() % (p - 1);
+            }
+        }
     }
 }

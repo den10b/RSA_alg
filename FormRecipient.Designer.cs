@@ -62,7 +62,7 @@ namespace Elgamal_encryption
             this.buttonPrimeGenerate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonPrimeGenerate.Location = new System.Drawing.Point(26, 119);
             this.buttonPrimeGenerate.Name = "buttonPrimeGenerate";
-            this.buttonPrimeGenerate.Size = new System.Drawing.Size(210, 35);
+            this.buttonPrimeGenerate.Size = new System.Drawing.Size(200, 35);
             this.buttonPrimeGenerate.TabIndex = 10;
             this.buttonPrimeGenerate.Text = "Генерация простого P";
             this.buttonPrimeGenerate.UseVisualStyleBackColor = true;
@@ -128,11 +128,11 @@ namespace Elgamal_encryption
             // buttonPublicKeyGenrated
             // 
             this.buttonPublicKeyGenrated.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPublicKeyGenrated.Location = new System.Drawing.Point(244, 119);
+            this.buttonPublicKeyGenrated.Location = new System.Drawing.Point(232, 119);
             this.buttonPublicKeyGenrated.Name = "buttonPublicKeyGenrated";
-            this.buttonPublicKeyGenrated.Size = new System.Drawing.Size(261, 35);
+            this.buttonPublicKeyGenrated.Size = new System.Drawing.Size(180, 35);
             this.buttonPublicKeyGenrated.TabIndex = 20;
-            this.buttonPublicKeyGenrated.Text = "Генерация открытого ключа";
+            this.buttonPublicKeyGenrated.Text = "Генерация ключей";
             this.buttonPublicKeyGenrated.UseVisualStyleBackColor = true;
             this.buttonPublicKeyGenrated.Click += new System.EventHandler(this.buttonPublicKeyGenrated_Click);
             // 

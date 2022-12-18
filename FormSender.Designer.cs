@@ -46,6 +46,7 @@ namespace Elgamal_encryption
             this.labelOpenKeyG = new System.Windows.Forms.Label();
             this.labelOpenKeyP = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonPrivateKeyGenerate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPrimeGenerate
@@ -149,7 +150,7 @@ namespace Elgamal_encryption
             // 
             this.labelOpenKeyYValue.AutoSize = true;
             this.labelOpenKeyYValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOpenKeyYValue.Location = new System.Drawing.Point(545, 82);
+            this.labelOpenKeyYValue.Location = new System.Drawing.Point(321, 82);
             this.labelOpenKeyYValue.Name = "labelOpenKeyYValue";
             this.labelOpenKeyYValue.Size = new System.Drawing.Size(58, 19);
             this.labelOpenKeyYValue.TabIndex = 34;
@@ -159,7 +160,7 @@ namespace Elgamal_encryption
             // 
             this.labelOpenKeyGValue.AutoSize = true;
             this.labelOpenKeyGValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOpenKeyGValue.Location = new System.Drawing.Point(554, 54);
+            this.labelOpenKeyGValue.Location = new System.Drawing.Point(330, 54);
             this.labelOpenKeyGValue.Name = "labelOpenKeyGValue";
             this.labelOpenKeyGValue.Size = new System.Drawing.Size(58, 19);
             this.labelOpenKeyGValue.TabIndex = 33;
@@ -169,7 +170,7 @@ namespace Elgamal_encryption
             // 
             this.labelOpenKeyPValue.AutoSize = true;
             this.labelOpenKeyPValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOpenKeyPValue.Location = new System.Drawing.Point(545, 28);
+            this.labelOpenKeyPValue.Location = new System.Drawing.Point(321, 28);
             this.labelOpenKeyPValue.Name = "labelOpenKeyPValue";
             this.labelOpenKeyPValue.Size = new System.Drawing.Size(58, 19);
             this.labelOpenKeyPValue.TabIndex = 32;
@@ -179,7 +180,7 @@ namespace Elgamal_encryption
             // 
             this.labelOpenKeyY.AutoSize = true;
             this.labelOpenKeyY.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOpenKeyY.Location = new System.Drawing.Point(518, 82);
+            this.labelOpenKeyY.Location = new System.Drawing.Point(294, 82);
             this.labelOpenKeyY.Name = "labelOpenKeyY";
             this.labelOpenKeyY.Size = new System.Drawing.Size(37, 19);
             this.labelOpenKeyY.TabIndex = 31;
@@ -189,7 +190,7 @@ namespace Elgamal_encryption
             // 
             this.labelOpenKeyG.AutoSize = true;
             this.labelOpenKeyG.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOpenKeyG.Location = new System.Drawing.Point(518, 54);
+            this.labelOpenKeyG.Location = new System.Drawing.Point(294, 54);
             this.labelOpenKeyG.Name = "labelOpenKeyG";
             this.labelOpenKeyG.Size = new System.Drawing.Size(40, 19);
             this.labelOpenKeyG.TabIndex = 30;
@@ -199,7 +200,7 @@ namespace Elgamal_encryption
             // 
             this.labelOpenKeyP.AutoSize = true;
             this.labelOpenKeyP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelOpenKeyP.Location = new System.Drawing.Point(518, 28);
+            this.labelOpenKeyP.Location = new System.Drawing.Point(294, 28);
             this.labelOpenKeyP.Name = "labelOpenKeyP";
             this.labelOpenKeyP.Size = new System.Drawing.Size(36, 19);
             this.labelOpenKeyP.TabIndex = 29;
@@ -209,17 +210,29 @@ namespace Elgamal_encryption
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(514, 9);
+            this.label1.Location = new System.Drawing.Point(290, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 19);
             this.label1.TabIndex = 28;
             this.label1.Text = "Открытый ключ";
+            // 
+            // buttonPrivateKeyGenerate
+            // 
+            this.buttonPrivateKeyGenerate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPrivateKeyGenerate.Location = new System.Drawing.Point(241, 160);
+            this.buttonPrivateKeyGenerate.Name = "buttonPrivateKeyGenerate";
+            this.buttonPrivateKeyGenerate.Size = new System.Drawing.Size(257, 35);
+            this.buttonPrivateKeyGenerate.TabIndex = 35;
+            this.buttonPrivateKeyGenerate.Text = "Генерация закрытого ключа";
+            this.buttonPrivateKeyGenerate.UseVisualStyleBackColor = true;
+            this.buttonPrivateKeyGenerate.Click += new System.EventHandler(this.buttonPrivateKeyGenerate_Click);
             // 
             // FormSender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 380);
+            this.Controls.Add(this.buttonPrivateKeyGenerate);
             this.Controls.Add(this.labelOpenKeyYValue);
             this.Controls.Add(this.labelOpenKeyGValue);
             this.Controls.Add(this.labelOpenKeyPValue);
@@ -266,6 +279,7 @@ namespace Elgamal_encryption
         public System.Windows.Forms.Label labelOpenKeyYValue;
         public System.Windows.Forms.Label labelOpenKeyGValue;
         public System.Windows.Forms.Label labelOpenKeyPValue;
+        private System.Windows.Forms.Button buttonPrivateKeyGenerate;
     }
 }
 
