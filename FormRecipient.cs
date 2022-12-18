@@ -170,5 +170,10 @@ namespace Elgamal_encryption
             }
                 
         }
+
+        private void buttonMessageDecrypt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

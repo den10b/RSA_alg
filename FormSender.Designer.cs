@@ -47,6 +47,9 @@ namespace Elgamal_encryption
             this.labelOpenKeyP = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonPrivateKeyGenerate = new System.Windows.Forms.Button();
+            this.buttonMessageCrypt = new System.Windows.Forms.Button();
+            this.labelKValue = new System.Windows.Forms.Label();
+            this.buttonSendToRec = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonPrimeGenerate
@@ -219,7 +222,7 @@ namespace Elgamal_encryption
             // buttonPrivateKeyGenerate
             // 
             this.buttonPrivateKeyGenerate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPrivateKeyGenerate.Location = new System.Drawing.Point(241, 160);
+            this.buttonPrivateKeyGenerate.Location = new System.Drawing.Point(439, 9);
             this.buttonPrivateKeyGenerate.Name = "buttonPrivateKeyGenerate";
             this.buttonPrivateKeyGenerate.Size = new System.Drawing.Size(257, 35);
             this.buttonPrivateKeyGenerate.TabIndex = 35;
@@ -227,11 +230,46 @@ namespace Elgamal_encryption
             this.buttonPrivateKeyGenerate.UseVisualStyleBackColor = true;
             this.buttonPrivateKeyGenerate.Click += new System.EventHandler(this.buttonPrivateKeyGenerate_Click);
             // 
+            // buttonMessageCrypt
+            // 
+            this.buttonMessageCrypt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonMessageCrypt.Location = new System.Drawing.Point(459, 54);
+            this.buttonMessageCrypt.Name = "buttonMessageCrypt";
+            this.buttonMessageCrypt.Size = new System.Drawing.Size(210, 35);
+            this.buttonMessageCrypt.TabIndex = 36;
+            this.buttonMessageCrypt.Text = "Зашифровать";
+            this.buttonMessageCrypt.UseVisualStyleBackColor = true;
+            this.buttonMessageCrypt.Click += new System.EventHandler(this.buttonMessageCrypt_Click);
+            // 
+            // labelKValue
+            // 
+            this.labelKValue.AutoSize = true;
+            this.labelKValue.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelKValue.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelKValue.Location = new System.Drawing.Point(669, 119);
+            this.labelKValue.Name = "labelKValue";
+            this.labelKValue.Size = new System.Drawing.Size(0, 16);
+            this.labelKValue.TabIndex = 37;
+            // 
+            // buttonSendToRec
+            // 
+            this.buttonSendToRec.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSendToRec.Location = new System.Drawing.Point(459, 100);
+            this.buttonSendToRec.Name = "buttonSendToRec";
+            this.buttonSendToRec.Size = new System.Drawing.Size(210, 35);
+            this.buttonSendToRec.TabIndex = 38;
+            this.buttonSendToRec.Text = "Отправить";
+            this.buttonSendToRec.UseVisualStyleBackColor = true;
+            this.buttonSendToRec.Click += new System.EventHandler(this.buttonSendToRec_Click);
+            // 
             // FormSender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 380);
+            this.Controls.Add(this.buttonSendToRec);
+            this.Controls.Add(this.labelKValue);
+            this.Controls.Add(this.buttonMessageCrypt);
             this.Controls.Add(this.buttonPrivateKeyGenerate);
             this.Controls.Add(this.labelOpenKeyYValue);
             this.Controls.Add(this.labelOpenKeyGValue);
@@ -280,6 +318,9 @@ namespace Elgamal_encryption
         public System.Windows.Forms.Label labelOpenKeyGValue;
         public System.Windows.Forms.Label labelOpenKeyPValue;
         private System.Windows.Forms.Button buttonPrivateKeyGenerate;
+        private System.Windows.Forms.Button buttonMessageCrypt;
+        public System.Windows.Forms.Label labelKValue;
+        private System.Windows.Forms.Button buttonSendToRec;
     }
 }
 

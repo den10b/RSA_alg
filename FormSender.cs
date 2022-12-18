@@ -163,6 +163,7 @@ namespace Elgamal_encryption
         private void buttonPrivateKeyGenerate_Click(object sender, EventArgs e)
         {
             ulong p = ulong.Parse(labelOpenKeyPValue.Text);
+
             ulong k = Change_Generate_Num();
             while (k > p - 1)
             {
@@ -172,6 +173,88 @@ namespace Elgamal_encryption
             {
                 k = Change_Generate_Num() % (p - 1);
             }
+
+            labelKValue.Text = k.ToString();
+
+
+        }
+
+        ulong power(ulong a, ulong b, ulong n) // a^b mod n - возведение a в степень b по модулю n
+        {
+            ulong tmp = a;
+            ulong sum = tmp;
+            for (ulong i = 1; i < b; i++)
+            {
+                for (ulong j = 1; j < a; j++)
+                {
+                    sum += tmp;
+                    if (sum >= n)
+                    {
+                        sum -= n;
+                    }
+                }
+                tmp = sum;
+            }
+            return tmp;
+        }
+
+        ulong mul(ulong a, ulong b, ulong n) // a*b mod n - умножение a на b по модулю n
+        {
+            ulong sum = 0;
+            for (ulong i = 0; i < b; i++)
+            {
+                sum += a;
+                if (sum >= n)
+                {
+                    sum -= n;
+                }
+            }
+            return sum;
+        }
+
+        private void buttonMessageCrypt_Click(object sender, EventArgs e)
+        {
+            FormRecipient formRecipient = new FormRecipient();
+            ulong p = ulong.Parse(labelOpenKeyPValue.Text);
+            ulong g = ulong.Parse(labelOpenKeyGValue.Text);
+            ulong y = ulong.Parse(labelOpenKeyYValue.Text);
+            if (labelKValue.Text != "")
+            {
+                ulong k = ulong.Parse(labelKValue.Text);
+                string text = richTextData.Text;
+                string crypt_text = "";
+                if (richTextData.Text != "")
+                {
+                    richTextData.Text = "";
+                    char[] temp = new char[text.Length - 1];
+                    temp = text.ToCharArray();
+                    for (int i = 0; i <= text.Length - 1; i++)
+                    {
+                        ulong m = (ulong)temp[i];
+                        if (m > 0)
+                        {
+                            ulong a = power(g, k, p);
+                            ulong b = mul(power(y, k, p), m, p);
+                            richTextData.Text = richTextData.Text + a + " " + b + " ";
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Введите текст", "Ошибка");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Сначала сформируйте закрытый ключ", "Error");
+            }
+            
+        }
+
+        private void buttonSendToRec_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(richTextData.Text);
         }
     }
 }

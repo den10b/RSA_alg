@@ -29,7 +29,7 @@ namespace Elgamal_encryption
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextData = new System.Windows.Forms.RichTextBox();
+            this.richTextDataRecipient = new System.Windows.Forms.RichTextBox();
             this.buttonPrimeGenerate = new System.Windows.Forms.Button();
             this.labelP1 = new System.Windows.Forms.Label();
             this.labelP2 = new System.Windows.Forms.Label();
@@ -46,16 +46,17 @@ namespace Elgamal_encryption
             this.labelOpenKeyGValue = new System.Windows.Forms.Label();
             this.labelOpenKeyYValue = new System.Windows.Forms.Label();
             this.buttonSendOpenKey = new System.Windows.Forms.Button();
+            this.buttonMessageDecrypt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // richTextData
+            // richTextDataRecipient
             // 
-            this.richTextData.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextData.Location = new System.Drawing.Point(26, 170);
-            this.richTextData.Name = "richTextData";
-            this.richTextData.Size = new System.Drawing.Size(672, 199);
-            this.richTextData.TabIndex = 9;
-            this.richTextData.Text = "";
+            this.richTextDataRecipient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextDataRecipient.Location = new System.Drawing.Point(26, 170);
+            this.richTextDataRecipient.Name = "richTextDataRecipient";
+            this.richTextDataRecipient.Size = new System.Drawing.Size(672, 199);
+            this.richTextDataRecipient.TabIndex = 9;
+            this.richTextDataRecipient.Text = "";
             // 
             // buttonPrimeGenerate
             // 
@@ -217,11 +218,23 @@ namespace Elgamal_encryption
             this.buttonSendOpenKey.UseVisualStyleBackColor = true;
             this.buttonSendOpenKey.Click += new System.EventHandler(this.buttonSendOpenKey_Click);
             // 
+            // buttonMessageDecrypt
+            // 
+            this.buttonMessageDecrypt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonMessageDecrypt.Location = new System.Drawing.Point(488, 119);
+            this.buttonMessageDecrypt.Name = "buttonMessageDecrypt";
+            this.buttonMessageDecrypt.Size = new System.Drawing.Size(210, 35);
+            this.buttonMessageDecrypt.TabIndex = 37;
+            this.buttonMessageDecrypt.Text = "Дешифровать";
+            this.buttonMessageDecrypt.UseVisualStyleBackColor = true;
+            this.buttonMessageDecrypt.Click += new System.EventHandler(this.buttonMessageDecrypt_Click);
+            // 
             // FormRecipient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 380);
+            this.Controls.Add(this.buttonMessageDecrypt);
             this.Controls.Add(this.buttonSendOpenKey);
             this.Controls.Add(this.labelOpenKeyYValue);
             this.Controls.Add(this.labelOpenKeyGValue);
@@ -238,7 +251,7 @@ namespace Elgamal_encryption
             this.Controls.Add(this.labelP2);
             this.Controls.Add(this.labelP1);
             this.Controls.Add(this.buttonPrimeGenerate);
-            this.Controls.Add(this.richTextData);
+            this.Controls.Add(this.richTextDataRecipient);
             this.Location = new System.Drawing.Point(1024, 200);
             this.Name = "FormRecipient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -249,7 +262,7 @@ namespace Elgamal_encryption
         }
 
         #endregion
-        public System.Windows.Forms.RichTextBox richTextData;
+        public System.Windows.Forms.RichTextBox richTextDataRecipient;
         private System.Windows.Forms.Button buttonPrimeGenerate;
         private System.Windows.Forms.Label labelP1;
         private System.Windows.Forms.Label labelP2;
@@ -266,5 +279,6 @@ namespace Elgamal_encryption
         public System.Windows.Forms.Label labelOpenKeyPValue;
         public System.Windows.Forms.Label labelOpenKeyGValue;
         public System.Windows.Forms.Label labelOpenKeyYValue;
+        private System.Windows.Forms.Button buttonMessageDecrypt;
     }
 }
