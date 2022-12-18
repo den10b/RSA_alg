@@ -193,6 +193,8 @@ namespace Elgamal_encryption
 
             if (richTextDataRecipient.Text != "")
             {
+                FormSignatureChecker formSignatureChecker = new FormSignatureChecker();
+
                 string[] strA = richTextDataRecipient.Text.Split(' ');
                 string checkSignature = strA[0];
                 int checkNumber = 0;
@@ -223,18 +225,22 @@ namespace Elgamal_encryption
                             // Проверка подписи
                             if (ai == ulong.Parse(checkSignature))
                             {
+                                checkNumber = 1;
                                 char m = (char)deM;
                                 richTextDataRecipient.Text = richTextDataRecipient.Text + m;
                             } 
                         }
                     }
                 }
+                if (checkNumber == 1)
+                {
+                    formSignatureChecker.Show();
+                }
             }
             else
             {
                 MessageBox.Show("Вы не зашифровали текст", "Error");
             }
-
         }
     }
 }

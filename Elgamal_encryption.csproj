@@ -78,6 +78,12 @@
     <Compile Include="FormPrimeCheck.Designer.cs">
       <DependentUpon>FormPrimeCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSignatureChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSignatureChecker.Designer.cs">
+      <DependentUpon>FormSignatureChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPrimeGenerate.resx">
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrimeCheck.resx">
       <DependentUpon>FormPrimeCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSignatureChecker.resx">
+      <DependentUpon>FormSignatureChecker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
