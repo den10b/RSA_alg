@@ -50,7 +50,45 @@ namespace Elgamal_encryption
             return result;
         }
 
-        private void buttonPrimeGenerate_Click(object sender, EventArgs e)
+
+        ulong power(ulong a, ulong b, ulong n) // a^b mod n - возведение a в степень b по модулю n
+        {
+            ulong tmp = a;
+            ulong sum = tmp;
+            for (ulong i = 1; i < b; i++)
+            {
+                for (ulong j = 1; j < a; j++)
+                {
+                    sum += tmp;
+                    if (sum >= n)
+                    {
+                        sum -= n;
+                    }
+                }
+                tmp = sum;
+            }
+            return tmp;
+        }
+
+        ulong mul(ulong a, ulong b, ulong n) // a*b mod n - умножение a на b по модулю n
+        {
+            ulong sum = 0;
+            for (ulong i = 0; i < b; i++)
+            {
+                sum += a;
+                if (sum >= n)
+                {
+                    sum -= n;
+                }
+            }
+            return sum;
+        }
+
+
+
+
+
+        private void buttonPrimeGenerate_Click_1(object sender, EventArgs e)
         {
             ulong min = pow((ulong)(rand()), Convert.ToInt32(rand() % 9));
             ulong tpr1 = 1;
@@ -88,76 +126,43 @@ namespace Elgamal_encryption
             this.pr2 = tpr2;
             this.n = tpr1 * tpr2;
 
-            labelPValue.Text = pr1.ToString();
-            labelP2Value.Text = pr2.ToString();
-            labelNValue.Text = n.ToString();
+            labelOpenKeyPValue.Text = pr2.ToString();
 
         }
 
-        ulong power(ulong a, ulong b, ulong n) // a^b mod n - возведение a в степень b по модулю n
+        private void buttonPublicKeyGenrated_Click_1(object sender, EventArgs e)
         {
-            ulong tmp = a;
-            ulong sum = tmp;
-            for (ulong i = 1; i < b; i++)
+            if (labelOpenKeyPValue.Text == "")
             {
-                for (ulong j = 1; j < a; j++)
-                {
-                    sum += tmp;
-                    if (sum >= n)
-                    {
-                        sum -= n;
-                    }
-                }
-                tmp = sum;
-            }
-            return tmp;
-        }
-
-        ulong mul(ulong a, ulong b, ulong n) // a*b mod n - умножение a на b по модулю n
-        {
-            ulong sum = 0;
-            for (ulong i = 0; i < b; i++)
-            {
-                sum += a;
-                if (sum >= n)
-                {
-                    sum -= n;
-                }
-            }
-            return sum;
-        }
-
-        private void buttonPublicKeyGenrated_Click(object sender, EventArgs e)
-        {
-            if (labelP2Value.Text == "")
-            {
-                MessageBox.Show("Сначала сгенерируйте простые числа", "Error");
+                MessageBox.Show("Сначала сгенерируйте простое число P", "Error");
             }
             else
             {
-                p = ulong.Parse(labelP2Value.Text);
+                p = ulong.Parse(labelOpenKeyPValue.Text);
                 g = p / 2 - (rand() % 6);
                 x = p / (rand() % 10 + 1);
                 y = power(g, x, p);
-                if (x == 1 || x ==0)
+                if (x == 1 || x == 0)
                 {
                     x += (rand() % 10) + 1;
-                }else if (x == p)
+                }
+                else if (x == p)
                 {
                     x -= 1;
                 }
                 if (g == 0) g++;
                 if (y == 0) y++;
                 labelXValue.Text = x.ToString();
-                labelOpenKeyPValue.Text = p.ToString();
+
                 labelOpenKeyGValue.Text = g.ToString();
                 labelOpenKeyYValue.Text = y.ToString();
 
-                
+
             }
+
         }
 
-        private void buttonSendOpenKey_Click(object sender, EventArgs e)
+        private void buttonSendOpenKey_Click_1(object sender, EventArgs e)
         {
             if (labelOpenKeyPValue.Text != "label2")
             {
@@ -169,27 +174,31 @@ namespace Elgamal_encryption
             {
                 MessageBox.Show("Сначала сгенерируйте открытый ключ", "Error");
             }
-                
+
         }
 
-        private void buttonRetrieve_Click(object sender, EventArgs e)
+        private void buttonRetrieve_Click_1(object sender, EventArgs e)
         {
             richTextDataRecipient.Text = Program.FMain.richTextData.Text;
+            Program.FMain.richTextData.Text = "";
         }
 
-        private void buttonMessageDecrypt_Click(object sender, EventArgs e)
+        private void buttonMessageDecrypt_Click_1(object sender, EventArgs e)
         {
             ulong p = ulong.Parse(labelOpenKeyPValue.Text);
             ulong x = ulong.Parse(labelXValue.Text);
+
+            int flag = 0;
 
 
             if (richTextDataRecipient.Text != "")
             {
                 string[] strA = richTextDataRecipient.Text.Split(' ');
+                
                 richTextDataRecipient.Text = "";
                 if (strA.Length > 0)
                 {
-                    for (int i = 0; i < strA.Length - 1; i+= 2)
+                    for (int i = 0; i < strA.Length - 1; i += 2)
                     {
                         char[] a = new char[strA[i].Length];
                         char[] b = new char[strA[i + 1].Length];
@@ -205,10 +214,13 @@ namespace Elgamal_encryption
                         for (int j = 0; (j < b.Length); j++)
                         {
                             bi = bi * 10 + (ulong)(b[j] - 48);
+
                         }
                         if ((ai != 0) && (bi != 0))
                         {
                             ulong deM = mul(bi, power(ai, p - 1 - x, p), p);
+                            MessageBox.Show($"ai = {ai}");
+                            MessageBox.Show($"deM = {deM}");
                             char m = (char)deM;
 
                             richTextDataRecipient.Text = richTextDataRecipient.Text + m;
@@ -220,6 +232,7 @@ namespace Elgamal_encryption
             {
                 MessageBox.Show("Вы не зашифровали текст", "Error");
             }
+
         }
     }
 }

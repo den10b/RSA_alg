@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormPrimeGenerate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrimeGenerate.Designer.cs">
+      <DependentUpon>FormPrimeGenerate.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRecipient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +66,11 @@
     <Compile Include="FormSender.Designer.cs">
       <DependentUpon>FormSender.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDischargeSelection.cs">
+    <Compile Include="FormSecretKey.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDischargeSelection.Designer.cs">
-      <DependentUpon>FormDischargeSelection.cs</DependentUpon>
+    <Compile Include="FormSecretKey.Designer.cs">
+      <DependentUpon>FormSecretKey.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrimeCheck.cs">
       <SubType>Form</SubType>
@@ -74,14 +80,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormPrimeGenerate.resx">
+      <DependentUpon>FormPrimeGenerate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRecipient.resx">
       <DependentUpon>FormRecipient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSender.resx">
       <DependentUpon>FormSender.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDischargeSelection.resx">
-      <DependentUpon>FormDischargeSelection.cs</DependentUpon>
+    <EmbeddedResource Include="FormSecretKey.resx">
+      <DependentUpon>FormSecretKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrimeCheck.resx">
       <DependentUpon>FormPrimeCheck.cs</DependentUpon>

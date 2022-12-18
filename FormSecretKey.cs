@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Elgamal_encryption
 {
-    public partial class FormDischargeSelection : Form
+    public partial class FormSecretKey : Form
     {
-        public FormDischargeSelection()
+        public FormSecretKey()
         {
             InitializeComponent();
             
@@ -23,29 +23,7 @@ namespace Elgamal_encryption
             Close();
         }
 
-        private void buttonStartGenerating_Click(object sender, EventArgs e)
-        {
-            Close();
-            if (radioButton1.Checked)
-            {
-                isPrime(GenerateNumbers(10,2,9,7));
-            }
-            else if (radioButton2.Checked){
-                Program.FMain.richTextData.Text = "2Button";
-            }
-            else if (radioButton3.Checked)
-            {
-                Program.FMain.richTextData.Text = "3Button";
-            }
-            else if (radioButton4.Checked)
-            {
-                Program.FMain.richTextData.Text = "4Button";
-            }
-            else if (radioButton5.Checked)
-            {
-                Program.FMain.richTextData.Text = "5Button";
-            }
-        }
+
 
         unsafe static int Random()
         {
@@ -94,6 +72,11 @@ namespace Elgamal_encryption
                     Program.FMain.richTextData.Text = array[i].ToString();
                 }
             }
+        }
+
+        private void labelNumberGenerate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

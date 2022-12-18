@@ -44,64 +44,14 @@ namespace Elgamal_encryption
                 result = result * n;
             return result;
         }
-        private void buttonPrimelGenerate_Click(object sender, EventArgs e)
-        {
-            ulong min = pow((ulong)(rand()), Convert.ToInt32(rand() % 9));
-            ulong tpr1 = 1;
-            ulong tpr2 = 1;
-            for (ulong i = min; ; i++)
-            {
-                int check1 = -1;
-                if ((i % 2) == 0)
-                    continue;
-                for (ulong j = 3; j < i / 2; j += 2)
-                {
-                    if (i % j == 0)
-                    {
-                        check1 = 1;
-                        break;
-                    }
-                }
-                if (check1 == -1)
-                {
-                    if ((tpr1 == 1) && (rand() > 8))
-                    {
-                        tpr1 = i;
-                    }
-                    else if ((tpr1 != 1) && (rand() > 9))
-                    {
-                        tpr2 = i;
-                    }
-                }
-                if ((tpr1 != 1) && (tpr2 != 1))
-                {
-                    break;
-                }
-            }
-            this.pr1 = tpr1;
-            this.pr2 = tpr2;
-            this.n = tpr1 * tpr2;
 
-            labelPValue.Text = pr1.ToString();
-            labelP2Value.Text = pr2.ToString();
-            labelNValue.Text = n.ToString();
-
-        }
-
-        
-        private void buttonPrimeCheck_Click(object sender, EventArgs e)
-        {
-
-            FormPrimeCheck FormPrimeCheck = new FormPrimeCheck();
-            FormPrimeCheck.comboBoxNumberCheck.Items.Add(labelPValue.Text);
-            FormPrimeCheck.comboBoxNumberCheck.Items.Add(labelP2Value.Text);
-            FormPrimeCheck.Show();
-        }
 
         private void FormSender_Load(object sender, EventArgs e)
         {
             FormRecipient formRecipient = new FormRecipient();
+            FormPrimeGenerate formPrimeGenerate = new FormPrimeGenerate();
             formRecipient.Show();
+            formPrimeGenerate.Show();
         }
 
         private ulong Change_Generate_Num()
@@ -162,21 +112,28 @@ namespace Elgamal_encryption
         }
         private void buttonPrivateKeyGenerate_Click(object sender, EventArgs e)
         {
-            ulong p = ulong.Parse(labelOpenKeyPValue.Text);
-
-            ulong k = Change_Generate_Num();
-            while (k > p - 1)
+            if (labelOpenKeyPValue.Text != "")
             {
-                k = Change_Generate_Num();
+                ulong p = ulong.Parse(labelOpenKeyPValue.Text);
+                ulong k = Change_Generate_Num();
+                while (k > p - 1)
+                {
+                    k = Change_Generate_Num();
+                }
+                while (!IsCoprime(k, p - 1))
+                {
+                    k = Change_Generate_Num() % (p - 1);
+                }
+
+                labelKValue.Text = k.ToString();
+
+                FormSecretKey formSecretKey = new FormSecretKey();
+                formSecretKey.Show();
             }
-            while (!IsCoprime(k, p - 1))
+            else
             {
-                k = Change_Generate_Num() % (p - 1);
+                MessageBox.Show("Сначала получите открытый ключ!", "Error");
             }
-
-            labelKValue.Text = k.ToString();
-
-
         }
 
         ulong power(ulong a, ulong b, ulong n) // a^b mod n - возведение a в степень b по модулю n
@@ -215,51 +172,52 @@ namespace Elgamal_encryption
         private void buttonMessageCrypt_Click(object sender, EventArgs e)
         {
             FormRecipient formRecipient = new FormRecipient();
-            ulong p = ulong.Parse(labelOpenKeyPValue.Text);
-            ulong g = ulong.Parse(labelOpenKeyGValue.Text);
-            ulong y = ulong.Parse(labelOpenKeyYValue.Text);
-            if (labelKValue.Text != "")
+            if (labelOpenKeyPValue.Text != "")
             {
-                ulong k = ulong.Parse(labelKValue.Text);
-                string text = richTextData.Text;
-                if (richTextData.Text != "")
+                ulong p = ulong.Parse(labelOpenKeyPValue.Text);
+                ulong g = ulong.Parse(labelOpenKeyGValue.Text);
+                ulong y = ulong.Parse(labelOpenKeyYValue.Text);
+                if (labelKValue.Text != "")
                 {
-                    richTextData.Text = "";
-                    char[] temp = new char[text.Length - 1];
-                    temp = text.ToCharArray();
-                    for (int i = 0; i <= text.Length - 1; i++)
+                    ulong k = ulong.Parse(labelKValue.Text);
+                    string text = richTextData.Text;
+                    if (richTextData.Text != "")
                     {
-                        ulong m = (ulong)temp[i];
-                        if (m > 0)
+                        richTextData.Text = "";
+                        char[] temp = new char[text.Length - 1];
+                        temp = text.ToCharArray();
+                        for (int i = 0; i <= text.Length - 1; i++)
                         {
-                            ulong a = power(g, k, p);
-                            ulong b = mul(power(y, k, p), m, p);
-                            richTextData.Text = richTextData.Text + a + " " + b + " ";
+                            ulong m = (ulong)temp[i];
+                            if (m > 0)
+                            {
+                                ulong a = power(g, k, p);
+                                ulong b = mul(power(y, k, p), m, p);
+                                richTextData.Text = richTextData.Text + a + " " + b + " ";
+                            }
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Введите текст", "Ошибка");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Введите текст", "Ошибка");
+                    MessageBox.Show("Сначала сформируйте закрытый ключ", "Error");
                 }
             }
             else
             {
-                MessageBox.Show("Сначала сформируйте закрытый ключ", "Error");
+                MessageBox.Show("Сначала получите открытый ключ!", "Error");
             }
+            
             
         }
 
         private void buttonSendToRec_Click(object sender, EventArgs e)
         {
-
             
-
-            /*FormSender form1 = new FormSender(this);
-            string bebra = "zxc";
-            form1.labelOpenKeyP.Text = "lol";
-            form1.richTextData.Text = "lol";*/
-            //richTextDataRecipient.Text = "LOLOL";
         }
     }
 }
