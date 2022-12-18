@@ -222,7 +222,6 @@ namespace Elgamal_encryption
             {
                 ulong k = ulong.Parse(labelKValue.Text);
                 string text = richTextData.Text;
-                string crypt_text = "";
                 if (richTextData.Text != "")
                 {
                     richTextData.Text = "";
@@ -243,7 +242,6 @@ namespace Elgamal_encryption
                 {
                     MessageBox.Show("Введите текст", "Ошибка");
                 }
-
             }
             else
             {
@@ -254,7 +252,14 @@ namespace Elgamal_encryption
 
         private void buttonSendToRec_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(richTextData.Text);
+
+            
+
+            /*FormSender form1 = new FormSender(this);
+            string bebra = "zxc";
+            form1.labelOpenKeyP.Text = "lol";
+            form1.richTextData.Text = "lol";*/
+            //richTextDataRecipient.Text = "LOLOL";
         }
     }
 }

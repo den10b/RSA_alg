@@ -113,10 +113,10 @@ namespace Elgamal_encryption
             return tmp;
         }
 
-        int mul(int a, int b, int n) // a*b mod n - умножение a на b по модулю n
+        ulong mul(ulong a, ulong b, ulong n) // a*b mod n - умножение a на b по модулю n
         {
-            int sum = 0;
-            for (int i = 0; i < b; i++)
+            ulong sum = 0;
+            for (ulong i = 0; i < b; i++)
             {
                 sum += a;
                 if (sum >= n)
@@ -148,6 +148,7 @@ namespace Elgamal_encryption
                 }
                 if (g == 0) g++;
                 if (y == 0) y++;
+                labelXValue.Text = x.ToString();
                 labelOpenKeyPValue.Text = p.ToString();
                 labelOpenKeyGValue.Text = g.ToString();
                 labelOpenKeyYValue.Text = y.ToString();
@@ -171,9 +172,54 @@ namespace Elgamal_encryption
                 
         }
 
+        private void buttonRetrieve_Click(object sender, EventArgs e)
+        {
+            richTextDataRecipient.Text = Program.FMain.richTextData.Text;
+        }
+
         private void buttonMessageDecrypt_Click(object sender, EventArgs e)
         {
+            ulong p = ulong.Parse(labelOpenKeyPValue.Text);
+            ulong x = ulong.Parse(labelXValue.Text);
 
+
+            if (richTextDataRecipient.Text != "")
+            {
+                string[] strA = richTextDataRecipient.Text.Split(' ');
+                richTextDataRecipient.Text = "";
+                if (strA.Length > 0)
+                {
+                    for (int i = 0; i < strA.Length - 1; i+= 2)
+                    {
+                        char[] a = new char[strA[i].Length];
+                        char[] b = new char[strA[i + 1].Length];
+                        ulong ai = 0;
+                        ulong bi = 0;
+                        a = strA[i].ToCharArray();
+                        b = strA[i + 1].ToCharArray();
+                        for (int j = 0; (j < a.Length); j++)
+                        {
+                            // ai * 10, 710
+                            ai = ai * 10 + (ulong)(a[j] - 48);
+                        }
+                        for (int j = 0; (j < b.Length); j++)
+                        {
+                            bi = bi * 10 + (ulong)(b[j] - 48);
+                        }
+                        if ((ai != 0) && (bi != 0))
+                        {
+                            ulong deM = mul(bi, power(ai, p - 1 - x, p), p);
+                            char m = (char)deM;
+
+                            richTextDataRecipient.Text = richTextDataRecipient.Text + m;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не зашифровали текст", "Error");
+            }
         }
     }
 }

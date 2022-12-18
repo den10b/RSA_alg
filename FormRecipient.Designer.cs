@@ -47,11 +47,14 @@ namespace Elgamal_encryption
             this.labelOpenKeyYValue = new System.Windows.Forms.Label();
             this.buttonSendOpenKey = new System.Windows.Forms.Button();
             this.buttonMessageDecrypt = new System.Windows.Forms.Button();
+            this.buttonRetrieve = new System.Windows.Forms.Button();
+            this.labelXValue = new System.Windows.Forms.Label();
+            this.labelAValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // richTextDataRecipient
             // 
-            this.richTextDataRecipient.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextDataRecipient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextDataRecipient.Location = new System.Drawing.Point(26, 170);
             this.richTextDataRecipient.Name = "richTextDataRecipient";
             this.richTextDataRecipient.Size = new System.Drawing.Size(672, 199);
@@ -221,7 +224,7 @@ namespace Elgamal_encryption
             // buttonMessageDecrypt
             // 
             this.buttonMessageDecrypt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonMessageDecrypt.Location = new System.Drawing.Point(488, 119);
+            this.buttonMessageDecrypt.Location = new System.Drawing.Point(474, 119);
             this.buttonMessageDecrypt.Name = "buttonMessageDecrypt";
             this.buttonMessageDecrypt.Size = new System.Drawing.Size(210, 35);
             this.buttonMessageDecrypt.TabIndex = 37;
@@ -229,11 +232,44 @@ namespace Elgamal_encryption
             this.buttonMessageDecrypt.UseVisualStyleBackColor = true;
             this.buttonMessageDecrypt.Click += new System.EventHandler(this.buttonMessageDecrypt_Click);
             // 
+            // buttonRetrieve
+            // 
+            this.buttonRetrieve.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRetrieve.Location = new System.Drawing.Point(474, 74);
+            this.buttonRetrieve.Name = "buttonRetrieve";
+            this.buttonRetrieve.Size = new System.Drawing.Size(210, 35);
+            this.buttonRetrieve.TabIndex = 39;
+            this.buttonRetrieve.Text = "Получить";
+            this.buttonRetrieve.UseVisualStyleBackColor = true;
+            this.buttonRetrieve.Click += new System.EventHandler(this.buttonRetrieve_Click);
+            // 
+            // labelXValue
+            // 
+            this.labelXValue.AutoSize = true;
+            this.labelXValue.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelXValue.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelXValue.Location = new System.Drawing.Point(113, 12);
+            this.labelXValue.Name = "labelXValue";
+            this.labelXValue.Size = new System.Drawing.Size(0, 15);
+            this.labelXValue.TabIndex = 40;
+            // 
+            // labelAValue
+            // 
+            this.labelAValue.AutoSize = true;
+            this.labelAValue.Location = new System.Drawing.Point(105, 59);
+            this.labelAValue.Name = "labelAValue";
+            this.labelAValue.Size = new System.Drawing.Size(35, 13);
+            this.labelAValue.TabIndex = 41;
+            this.labelAValue.Text = "label2";
+            // 
             // FormRecipient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 380);
+            this.Controls.Add(this.labelAValue);
+            this.Controls.Add(this.labelXValue);
+            this.Controls.Add(this.buttonRetrieve);
             this.Controls.Add(this.buttonMessageDecrypt);
             this.Controls.Add(this.buttonSendOpenKey);
             this.Controls.Add(this.labelOpenKeyYValue);
@@ -280,5 +316,8 @@ namespace Elgamal_encryption
         public System.Windows.Forms.Label labelOpenKeyGValue;
         public System.Windows.Forms.Label labelOpenKeyYValue;
         private System.Windows.Forms.Button buttonMessageDecrypt;
+        private System.Windows.Forms.Button buttonRetrieve;
+        public System.Windows.Forms.Label labelXValue;
+        private System.Windows.Forms.Label labelAValue;
     }
 }
