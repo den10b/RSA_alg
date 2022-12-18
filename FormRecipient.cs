@@ -22,17 +22,24 @@ namespace Elgamal_encryption
         private ulong n;
         uint state0 = 1;
         uint state1 = 2;
+
+        //Значения ключей алгоритма
+        private ulong p; // Параметр открытого ключа
+        private ulong g; // Параметр открытого ключа
+        private ulong y; // Параметр открытого ключа
+        private ulong x; // Параметр закрытого ключа
+
         uint rand()
         {
             uint s1 = state0;
             uint s0 = state1;
             state0 = s0;
-            s1 ^= s1 << 21;
+            s1 ^= s1 << 23;
             s1 ^= s1 >> 17;
             s1 ^= s0;
             s1 ^= s0 >> 26;
             state1 = s1;
-            return (state0 + state1) % 13;
+            return (state0 + state1) % 11;
         }
 
         private ulong pow(ulong n, int s)
@@ -87,5 +94,81 @@ namespace Elgamal_encryption
 
         }
 
+        ulong power(ulong a, ulong b, ulong n) // a^b mod n - возведение a в степень b по модулю n
+        {
+            ulong tmp = a;
+            ulong sum = tmp;
+            for (ulong i = 1; i < b; i++)
+            {
+                for (ulong j = 1; j < a; j++)
+                {
+                    sum += tmp;
+                    if (sum >= n)
+                    {
+                        sum -= n;
+                    }
+                }
+                tmp = sum;
+            }
+            return tmp;
+        }
+
+        int mul(int a, int b, int n) // a*b mod n - умножение a на b по модулю n
+        {
+            int sum = 0;
+            for (int i = 0; i < b; i++)
+            {
+                sum += a;
+                if (sum >= n)
+                {
+                    sum -= n;
+                }
+            }
+            return sum;
+        }
+
+        private void buttonPublicKeyGenrated_Click(object sender, EventArgs e)
+        {
+            if (labelP2Value.Text == "")
+            {
+                MessageBox.Show("Сначала сгенерируйте простые числа", "Error");
+            }
+            else
+            {
+                p = ulong.Parse(labelP2Value.Text);
+                g = p / 2 - (rand() % 6);
+                x = p / (rand() % 10 + 1);
+                y = power(g, x, p);
+                if (x == 1 || x ==0)
+                {
+                    x += (rand() % 10) + 1;
+                }else if (x == p)
+                {
+                    x -= 1;
+                }
+                if (g == 0) g++;
+                if (y == 0) y++;
+                labelOpenKeyPValue.Text = p.ToString();
+                labelOpenKeyGValue.Text = g.ToString();
+                labelOpenKeyYValue.Text = y.ToString();
+
+                
+            }
+        }
+
+        private void buttonSendOpenKey_Click(object sender, EventArgs e)
+        {
+            if (labelOpenKeyPValue.Text != "label2")
+            {
+                Program.FMain.labelOpenKeyPValue.Text = p.ToString();
+                Program.FMain.labelOpenKeyGValue.Text = g.ToString();
+                Program.FMain.labelOpenKeyYValue.Text = y.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Сначала сгенерируйте открытый ключ", "Error");
+            }
+                
+        }
     }
 }

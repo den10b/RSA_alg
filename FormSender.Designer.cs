@@ -39,12 +39,19 @@ namespace Elgamal_encryption
             this.labelP2Value = new System.Windows.Forms.Label();
             this.labelNValue = new System.Windows.Forms.Label();
             this.buttonPrimeCheck = new System.Windows.Forms.Button();
+            this.labelOpenKeyYValue = new System.Windows.Forms.Label();
+            this.labelOpenKeyGValue = new System.Windows.Forms.Label();
+            this.labelOpenKeyPValue = new System.Windows.Forms.Label();
+            this.labelOpenKeyY = new System.Windows.Forms.Label();
+            this.labelOpenKeyG = new System.Windows.Forms.Label();
+            this.labelOpenKeyP = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonPrimeGenerate
             // 
             this.buttonPrimeGenerate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPrimeGenerate.Location = new System.Drawing.Point(26, 119);
+            this.buttonPrimeGenerate.Location = new System.Drawing.Point(12, 119);
             this.buttonPrimeGenerate.Name = "buttonPrimeGenerate";
             this.buttonPrimeGenerate.Size = new System.Drawing.Size(210, 35);
             this.buttonPrimeGenerate.TabIndex = 0;
@@ -55,9 +62,9 @@ namespace Elgamal_encryption
             // richTextData
             // 
             this.richTextData.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextData.Location = new System.Drawing.Point(26, 170);
+            this.richTextData.Location = new System.Drawing.Point(12, 210);
             this.richTextData.Name = "richTextData";
-            this.richTextData.Size = new System.Drawing.Size(672, 199);
+            this.richTextData.Size = new System.Drawing.Size(684, 158);
             this.richTextData.TabIndex = 1;
             this.richTextData.Text = "";
             // 
@@ -130,7 +137,7 @@ namespace Elgamal_encryption
             // buttonPrimeCheck
             // 
             this.buttonPrimeCheck.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPrimeCheck.Location = new System.Drawing.Point(242, 119);
+            this.buttonPrimeCheck.Location = new System.Drawing.Point(12, 160);
             this.buttonPrimeCheck.Name = "buttonPrimeCheck";
             this.buttonPrimeCheck.Size = new System.Drawing.Size(210, 35);
             this.buttonPrimeCheck.TabIndex = 9;
@@ -138,11 +145,88 @@ namespace Elgamal_encryption
             this.buttonPrimeCheck.UseVisualStyleBackColor = true;
             this.buttonPrimeCheck.Click += new System.EventHandler(this.buttonPrimeCheck_Click);
             // 
+            // labelOpenKeyYValue
+            // 
+            this.labelOpenKeyYValue.AutoSize = true;
+            this.labelOpenKeyYValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenKeyYValue.Location = new System.Drawing.Point(545, 82);
+            this.labelOpenKeyYValue.Name = "labelOpenKeyYValue";
+            this.labelOpenKeyYValue.Size = new System.Drawing.Size(58, 19);
+            this.labelOpenKeyYValue.TabIndex = 34;
+            this.labelOpenKeyYValue.Text = "label2";
+            // 
+            // labelOpenKeyGValue
+            // 
+            this.labelOpenKeyGValue.AutoSize = true;
+            this.labelOpenKeyGValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenKeyGValue.Location = new System.Drawing.Point(554, 54);
+            this.labelOpenKeyGValue.Name = "labelOpenKeyGValue";
+            this.labelOpenKeyGValue.Size = new System.Drawing.Size(58, 19);
+            this.labelOpenKeyGValue.TabIndex = 33;
+            this.labelOpenKeyGValue.Text = "label2";
+            // 
+            // labelOpenKeyPValue
+            // 
+            this.labelOpenKeyPValue.AutoSize = true;
+            this.labelOpenKeyPValue.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenKeyPValue.Location = new System.Drawing.Point(545, 28);
+            this.labelOpenKeyPValue.Name = "labelOpenKeyPValue";
+            this.labelOpenKeyPValue.Size = new System.Drawing.Size(58, 19);
+            this.labelOpenKeyPValue.TabIndex = 32;
+            this.labelOpenKeyPValue.Text = "label2";
+            // 
+            // labelOpenKeyY
+            // 
+            this.labelOpenKeyY.AutoSize = true;
+            this.labelOpenKeyY.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenKeyY.Location = new System.Drawing.Point(518, 82);
+            this.labelOpenKeyY.Name = "labelOpenKeyY";
+            this.labelOpenKeyY.Size = new System.Drawing.Size(37, 19);
+            this.labelOpenKeyY.TabIndex = 31;
+            this.labelOpenKeyY.Text = "Y = ";
+            // 
+            // labelOpenKeyG
+            // 
+            this.labelOpenKeyG.AutoSize = true;
+            this.labelOpenKeyG.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenKeyG.Location = new System.Drawing.Point(518, 54);
+            this.labelOpenKeyG.Name = "labelOpenKeyG";
+            this.labelOpenKeyG.Size = new System.Drawing.Size(40, 19);
+            this.labelOpenKeyG.TabIndex = 30;
+            this.labelOpenKeyG.Text = "G = ";
+            // 
+            // labelOpenKeyP
+            // 
+            this.labelOpenKeyP.AutoSize = true;
+            this.labelOpenKeyP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOpenKeyP.Location = new System.Drawing.Point(518, 28);
+            this.labelOpenKeyP.Name = "labelOpenKeyP";
+            this.labelOpenKeyP.Size = new System.Drawing.Size(36, 19);
+            this.labelOpenKeyP.TabIndex = 29;
+            this.labelOpenKeyP.Text = "P = ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(514, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 19);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Открытый ключ";
+            // 
             // FormSender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 380);
+            this.Controls.Add(this.labelOpenKeyYValue);
+            this.Controls.Add(this.labelOpenKeyGValue);
+            this.Controls.Add(this.labelOpenKeyPValue);
+            this.Controls.Add(this.labelOpenKeyY);
+            this.Controls.Add(this.labelOpenKeyG);
+            this.Controls.Add(this.labelOpenKeyP);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonPrimeCheck);
             this.Controls.Add(this.labelNValue);
             this.Controls.Add(this.labelP2Value);
@@ -175,6 +259,13 @@ namespace Elgamal_encryption
         private System.Windows.Forms.Label labelP2Value;
         private System.Windows.Forms.Label labelNValue;
         private System.Windows.Forms.Button buttonPrimeCheck;
+        private System.Windows.Forms.Label labelOpenKeyY;
+        private System.Windows.Forms.Label labelOpenKeyG;
+        private System.Windows.Forms.Label labelOpenKeyP;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label labelOpenKeyYValue;
+        public System.Windows.Forms.Label labelOpenKeyGValue;
+        public System.Windows.Forms.Label labelOpenKeyPValue;
     }
 }
 
