@@ -1,7 +1,7 @@
 ﻿
 namespace Elgamal_encryption
 {
-    partial class FormMain
+    partial class FormSender
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -44,7 +44,7 @@ namespace Elgamal_encryption
             // buttonPrimeGenerate
             // 
             this.buttonPrimeGenerate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPrimeGenerate.Location = new System.Drawing.Point(26, 198);
+            this.buttonPrimeGenerate.Location = new System.Drawing.Point(26, 119);
             this.buttonPrimeGenerate.Name = "buttonPrimeGenerate";
             this.buttonPrimeGenerate.Size = new System.Drawing.Size(210, 35);
             this.buttonPrimeGenerate.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace Elgamal_encryption
             // richTextData
             // 
             this.richTextData.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextData.Location = new System.Drawing.Point(26, 239);
+            this.richTextData.Location = new System.Drawing.Point(26, 170);
             this.richTextData.Name = "richTextData";
             this.richTextData.Size = new System.Drawing.Size(672, 199);
             this.richTextData.TabIndex = 1;
@@ -130,7 +130,7 @@ namespace Elgamal_encryption
             // buttonPrimeCheck
             // 
             this.buttonPrimeCheck.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPrimeCheck.Location = new System.Drawing.Point(242, 198);
+            this.buttonPrimeCheck.Location = new System.Drawing.Point(242, 119);
             this.buttonPrimeCheck.Name = "buttonPrimeCheck";
             this.buttonPrimeCheck.Size = new System.Drawing.Size(210, 35);
             this.buttonPrimeCheck.TabIndex = 9;
@@ -138,11 +138,11 @@ namespace Elgamal_encryption
             this.buttonPrimeCheck.UseVisualStyleBackColor = true;
             this.buttonPrimeCheck.Click += new System.EventHandler(this.buttonPrimeCheck_Click);
             // 
-            // FormMain
+            // FormSender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 450);
+            this.ClientSize = new System.Drawing.Size(708, 380);
             this.Controls.Add(this.buttonPrimeCheck);
             this.Controls.Add(this.labelNValue);
             this.Controls.Add(this.labelP2Value);
@@ -153,8 +153,11 @@ namespace Elgamal_encryption
             this.Controls.Add(this.labelN);
             this.Controls.Add(this.richTextData);
             this.Controls.Add(this.buttonPrimeGenerate);
-            this.Name = "FormMain";
-            this.Text = "Form1";
+            this.Location = new System.Drawing.Point(300, 200);
+            this.Name = "FormSender";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Sender";
+            this.Load += new System.EventHandler(this.FormSender_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

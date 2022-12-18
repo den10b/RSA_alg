@@ -48,11 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormMain.cs">
+    <Compile Include="FormRecipient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <Compile Include="FormRecipient.Designer.cs">
+      <DependentUpon>FormRecipient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSender.Designer.cs">
+      <DependentUpon>FormSender.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDischargeSelection.cs">
       <SubType>Form</SubType>
@@ -68,8 +74,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormRecipient.resx">
+      <DependentUpon>FormRecipient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSender.resx">
+      <DependentUpon>FormSender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDischargeSelection.resx">
       <DependentUpon>FormDischargeSelection.cs</DependentUpon>

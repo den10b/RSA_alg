@@ -11,10 +11,10 @@ using Elgamal_encryption;
 
 namespace Elgamal_encryption
 {
-    public partial class FormMain : Form
+    public partial class FormSender : Form
     {
         FormPrimeCheck FormPrimeCheck = new FormPrimeCheck();
-        public FormMain()
+        public FormSender()
         {
             InitializeComponent();
         }
@@ -96,6 +96,12 @@ namespace Elgamal_encryption
             FormPrimeCheck.comboBoxNumberCheck.Items.Add(labelPValue.Text);
             FormPrimeCheck.comboBoxNumberCheck.Items.Add(labelP2Value.Text);
             FormPrimeCheck.Show();
+        }
+
+        private void FormSender_Load(object sender, EventArgs e)
+        {
+            FormRecipient formRecipient = new FormRecipient();
+            formRecipient.Show();
         }
     }
 }
