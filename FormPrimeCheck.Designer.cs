@@ -15,9 +15,7 @@ namespace Elgamal_encryption
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            {components.Dispose();}
             base.Dispose(disposing);
         }
 
